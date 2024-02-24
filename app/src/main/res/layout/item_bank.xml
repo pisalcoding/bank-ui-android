@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="item"
+            type="pisal.me.learn.bankui.data.model.entity.Bank" />
+    </data>
+    <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:elevation="0dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:background="?selectableItemBackgroundBorderless">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="16dp">
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/img_logo"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/ic_github"/>
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/txt_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@{item.name}"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                    android:layout_marginStart="16dp"/>
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/txt_short_desc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@{item.description}"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                    android:maxLines="4"
+                    android:ellipsize="end"
+                    android:layout_marginStart="16dp"
+                    android:textColor="@color/dark_grey"/>
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical|end">
+                    <androidx.appcompat.widget.AppCompatImageButton
+                        android:id="@+id/btn_report"
+                        android:layout_width="42dp"
+                        android:layout_height="42dp"
+                        android:src="@drawable/round_report_24"
+                        android:background="#00FFFFFF"
+                        android:tint="@color/dark_grey"
+                        android:layout_marginEnd="8dp"/>
+                    <androidx.appcompat.widget.AppCompatImageButton
+                        android:id="@+id/btn_github"
+                        android:layout_width="42dp"
+                        android:layout_height="42dp"
+                        android:src="@drawable/ic_github"
+                        android:background="#00FFFFFF"
+                        android:tint="@color/dark_grey"/>
+                </androidx.appcompat.widget.LinearLayoutCompat>
+            </androidx.appcompat.widget.LinearLayoutCompat>
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+    </com.google.android.material.card.MaterialCardView>
+</layout>
