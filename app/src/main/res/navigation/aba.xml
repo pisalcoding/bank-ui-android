@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/aba"
+    app:startDestination="@id/nav_home">
+
+    <activity
+        android:id="@+id/abaActivity"
+        android:name="pisal.me.learn.bankui.ui.aba.AbaActivity"
+        android:label="AbaActivity"
+        tools:layout="@layout/activity_aba"/>
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="pisal.me.learn.bankui.ui.aba.home.AbaHomeFragment"
+        android:label="@string/menu_home"
+        tools:layout="@layout/fragment_aba_home" >
+    </fragment>
+</navigation>

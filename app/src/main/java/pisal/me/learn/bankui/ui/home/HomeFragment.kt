@@ -5,10 +5,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import me.pisal.alerter.Alerter
 import org.koin.android.ext.android.inject
+import pisal.me.learn.bankui.R
 import pisal.me.learn.bankui.common.TResult
+import pisal.me.learn.bankui.data.model.entity.Bank
 import pisal.me.learn.bankui.databinding.FragmentHomeBinding
+import pisal.me.learn.bankui.ui.aba.AbaActivity
 
 class HomeFragment : Fragment() {
 
@@ -44,6 +48,24 @@ class HomeFragment : Fragment() {
                             .show(childFragmentManager, "HomeFragment")
                     }
                 }
+            }
+
+            onItemClicked {
+                openBankUi(it)
+            }
+        }
+    }
+
+    private fun openBankUi(bank: Bank) {
+        when (bank.code) {
+            AbaActivity.BANK_CODE -> {
+                findNavController().navigate(R.id.action_nav_home_to_aba)
+            }
+            else -> {
+                Alerter.error()
+                    .withTitle("Not found!")
+                    .withMessage("Sorry the UI of this bank is not available yet.")
+                    .show(childFragmentManager, "HomeFragment")
             }
         }
     }

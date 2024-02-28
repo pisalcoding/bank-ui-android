@@ -7,6 +7,7 @@
     </data>
     <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/card"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
@@ -19,12 +20,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:padding="16dp">
+            android:paddingHorizontal="16dp"
+            android:paddingTop="16dp">
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/img_logo"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
-                android:src="@drawable/ic_github"/>
+                android:src="@drawable/ic_github"
+                android:layout_marginBottom="16dp"/>
             <androidx.appcompat.widget.LinearLayoutCompat
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -57,16 +60,16 @@
                         android:layout_width="42dp"
                         android:layout_height="42dp"
                         android:src="@drawable/round_report_24"
-                        android:background="#00FFFFFF"
                         android:tint="@color/dark_grey"
-                        android:layout_marginEnd="8dp"/>
+                        android:layout_marginEnd="8dp"
+                        android:background="?selectableItemBackgroundBorderless"/>
                     <androidx.appcompat.widget.AppCompatImageButton
                         android:id="@+id/btn_github"
                         android:layout_width="42dp"
                         android:layout_height="42dp"
                         android:src="@drawable/ic_github"
-                        android:background="#00FFFFFF"
-                        android:tint="@color/dark_grey"/>
+                        android:tint="@color/dark_grey"
+                        android:background="?selectableItemBackgroundBorderless"/>
                 </androidx.appcompat.widget.LinearLayoutCompat>
             </androidx.appcompat.widget.LinearLayoutCompat>
         </androidx.appcompat.widget.LinearLayoutCompat>

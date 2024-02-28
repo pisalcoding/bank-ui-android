@@ -12,6 +12,11 @@ import pisal.me.learn.bankui.databinding.ItemBankBinding
 
 class BankListAdapter : ListAdapter<Bank, BankListAdapter.ViewHolder>(BankDiff) {
 
+    private var _itemClickListener: ((item: Bank) -> Unit)? = null
+    fun onItemClicked(listener: (item: Bank) -> Unit) {
+        _itemClickListener = listener
+    }
+
     inner class ViewHolder(
         private val binding: ItemBankBinding
     ) : RecyclerView.ViewHolder(binding.root) {
@@ -22,6 +27,9 @@ class BankListAdapter : ListAdapter<Bank, BankListAdapter.ViewHolder>(BankDiff) 
                 .load("https://pisal.me/storage/${item.logo}")
                 .into(binding.imgLogo)
             binding.executePendingBindings()
+            binding.card.setOnClickListener {
+                _itemClickListener?.invoke(getItem(adapterPosition))
+            }
         }
     }
 

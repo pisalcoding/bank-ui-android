@@ -9,6 +9,7 @@ data class Bank(
     val description: String,
     val logo: String,
     val active: Int,
+    val code: String,
     val github: String? = null,
 ) : Serializable
 

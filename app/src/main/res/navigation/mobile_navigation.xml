@@ -9,5 +9,13 @@
         android:id="@+id/nav_home"
         android:name="pisal.me.learn.bankui.ui.home.HomeFragment"
         android:label="@string/menu_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_nav_home_to_aba"
+            app:destination="@id/aba" />
+    </fragment>
+
+    <include app:graph="@navigation/aba" />
+
+
 </navigation>
