@@ -44,6 +44,6 @@ class AbaActivity : AppCompatActivity() {
     }
 
     companion object {
-        const val BANK_CODE = "ABAAKHPP"
+        const val BANK_CODE = "ABAAKHPPXXX"
     }
 }

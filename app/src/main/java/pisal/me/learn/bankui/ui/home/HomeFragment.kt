@@ -27,21 +27,48 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
-        val root: View = binding.root
-        return root
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        refreshList()
+        setupSwipeRefresh()
+    }
 
+    private fun openBankUi(bank: Bank) {
+        when (bank.code) {
+            AbaActivity.BANK_CODE -> {
+                findNavController().navigate(R.id.action_nav_home_to_aba)
+            }
+
+            else -> {
+                Alerter.error()
+                    .withTitle("Not found!")
+                    .withMessage("Sorry the UI of this bank is not available yet.")
+                    .show(childFragmentManager, "HomeFragment")
+            }
+        }
+    }
+
+    private fun setupSwipeRefresh() {
+        binding.swipeRefresh.setOnRefreshListener {
+            refreshList()
+        }
+    }
+
+    private fun refreshList() {
         binding.rcl.adapter = BankListAdapter().apply {
+            binding.swipeRefresh.isRefreshing = true
             viewModel.list().observe(viewLifecycleOwner) {
                 when (it) {
                     is TResult.Success -> {
+                        binding.swipeRefresh.isRefreshing = false
                         submitList(it.data)
                     }
 
                     is TResult.Failure -> {
+                        binding.swipeRefresh.isRefreshing = false
                         Alerter.error()
                             .withTitle("Error")
                             .withMessage(it.message ?: "Unknown error!")
@@ -52,20 +79,6 @@ class HomeFragment : Fragment() {
 
             onItemClicked {
                 openBankUi(it)
-            }
-        }
-    }
-
-    private fun openBankUi(bank: Bank) {
-        when (bank.code) {
-            AbaActivity.BANK_CODE -> {
-                findNavController().navigate(R.id.action_nav_home_to_aba)
-            }
-            else -> {
-                Alerter.error()
-                    .withTitle("Not found!")
-                    .withMessage("Sorry the UI of this bank is not available yet.")
-                    .show(childFragmentManager, "HomeFragment")
             }
         }
     }
