@@ -27,6 +27,13 @@ fun MainActivity.setToolbarBackgroundColor(@ColorRes colorResId: Int){
     binding.appBarMain.toolbar.setBackgroundColor(resources.getColor(colorResId, theme))
 }
 
+fun MainActivity.hideToolbar() {
+    binding.appBarMain.toolbar.hide()
+}
+
+fun MainActivity.showToolbar() {
+    binding.appBarMain.toolbar.show()
+}
 
 
 fun MainActivity.showBlur() {

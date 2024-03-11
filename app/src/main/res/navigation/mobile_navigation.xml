@@ -13,9 +13,12 @@
         <action
             android:id="@+id/action_nav_home_to_aba"
             app:destination="@id/aba" />
+        <action
+            android:id="@+id/action_nav_home_to_acleda"
+            app:destination="@id/acleda" />
     </fragment>
 
     <include app:graph="@navigation/aba" />
-
+    <include app:graph="@navigation/acleda" />
 
 </navigation>

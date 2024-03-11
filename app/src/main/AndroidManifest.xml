@@ -27,7 +27,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".ui.aba.AbaActivity">
+        <activity android:name=".ui.acleda.AcledaActivity">
 
         </activity>
     </application>

@@ -12,7 +12,12 @@ import pisal.me.learn.bankui.R
 import pisal.me.learn.bankui.common.TResult
 import pisal.me.learn.bankui.data.model.entity.Bank
 import pisal.me.learn.bankui.databinding.FragmentHomeBinding
-import pisal.me.learn.bankui.ui.aba.AbaActivity
+import pisal.me.learn.bankui.setNavigationBackgroundColor
+import pisal.me.learn.bankui.setStatusBarColor
+import pisal.me.learn.bankui.setToolbarBackgroundColor
+import pisal.me.learn.bankui.ui.aba.home.AbaHomeFragment
+import pisal.me.learn.bankui.ui.acleda.home.AcledaHomeFragment
+import pisal.me.learn.bankui.ui.withMainActivity
 
 class HomeFragment : Fragment() {
 
@@ -38,8 +43,11 @@ class HomeFragment : Fragment() {
 
     private fun openBankUi(bank: Bank) {
         when (bank.code) {
-            AbaActivity.BANK_CODE -> {
+            AbaHomeFragment.BANK_CODE -> {
                 findNavController().navigate(R.id.action_nav_home_to_aba)
+            }
+            AcledaHomeFragment.BANK_CODE -> {
+                findNavController().navigate(R.id.action_nav_home_to_acleda)
             }
 
             else -> {
@@ -80,6 +88,15 @@ class HomeFragment : Fragment() {
             onItemClicked {
                 openBankUi(it)
             }
+        }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        withMainActivity {
+            setStatusBarColor(R.color.primary)
+            setToolbarBackgroundColor(R.color.primary)
+            setNavigationBackgroundColor(R.color.white)
         }
     }
 

@@ -9,4 +9,9 @@
 
     <color name="aba_primary">#044566</color>
     <color name="aba_accent">#DE5E57</color>
+    <color name="acleda_primary">#1C3351</color>
+    <color name="acleda_primary_variant">#1C3657</color>
+    <color name="acleda_accent">#C8A02D</color>
+    <color name="acleda_light_bg">#FEFEFE</color>
+
 </resources>

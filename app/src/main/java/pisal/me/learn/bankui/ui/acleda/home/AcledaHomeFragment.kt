@@ -1,4 +1,4 @@
-package pisal.me.learn.bankui.ui.aba.home
+package pisal.me.learn.bankui.ui.acleda.home
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,26 +7,26 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import org.koin.android.ext.android.inject
 import pisal.me.learn.bankui.R
-import pisal.me.learn.bankui.databinding.FragmentAbaHomeBinding
+import pisal.me.learn.bankui.databinding.FragmentAcledaHomeBinding
+import pisal.me.learn.bankui.hideToolbar
 import pisal.me.learn.bankui.setNavigationBackgroundColor
 import pisal.me.learn.bankui.setStatusBarColor
 import pisal.me.learn.bankui.setToolbarBackgroundColor
-import pisal.me.learn.bankui.ui.acleda.home.AcledaHomeViewModel
 import pisal.me.learn.bankui.ui.withMainActivity
 
-class AbaHomeFragment : Fragment() {
+class AcledaHomeFragment : Fragment() {
 
     private val viewModel by inject<AcledaHomeViewModel>()
-    private lateinit var binding: FragmentAbaHomeBinding
+    private lateinit var binding: FragmentAcledaHomeBinding
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        FragmentAbaHomeBinding.inflate(inflater, container, false).run {
+        FragmentAcledaHomeBinding.inflate(inflater, container, false).run {
             binding = this
-            return  root
+            return root
         }
     }
 
@@ -44,13 +44,14 @@ class AbaHomeFragment : Fragment() {
     override fun onResume() {
         super.onResume()
         withMainActivity {
-            setStatusBarColor(R.color.aba_primary)
-            setNavigationBackgroundColor(R.color.aba_accent)
-            setToolbarBackgroundColor(R.color.aba_primary)
+            setStatusBarColor(R.color.acleda_primary_variant)
+            setNavigationBackgroundColor(R.color.acleda_primary_variant)
+            hideToolbar()
         }
     }
 
+
     companion object {
-        const val BANK_CODE = "ABAAKHPPXXX"
+        const val BANK_CODE = "ACLBKHPPXXX"
     }
 }
